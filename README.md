@@ -1,4 +1,6 @@
-I Ching Python project
+#I Ching Python project
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/I_Ching_Song_Dynasty_print.jpg/440px-I_Ching_Song_Dynasty_print.jpg)
 
 iching is a packge developed by Cheng-Jun Wang. It employs the method of Shicao prediction to reproce the prediction of I Ching--the Book of Exchanges. The I Ching ([î tɕíŋ]; Chinese: 易經; pinyin: Yìjīng), also known as the Classic of Changes or Book of Changes in English, is an ancient divination text and the oldest of the Chinese classics.
 
