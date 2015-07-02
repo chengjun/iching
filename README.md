@@ -78,6 +78,19 @@ iching.plotTransition(10000)
 
 ![](https://github.com/chengjun/iching/blob/master/threechanges.png)
 
-##To-do:
 
-- plotRemainder
+
+```pytnon
+%matplotlib inline
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(15, 10),facecolor='white')
+plt.subplot(2, 2, 1)
+iching.plotTransitionRemainder(1000, w = 50)
+plt.subplot(2, 2, 2)
+iching.plotTransitionRemainder(1000, w = 50)
+plt.subplot(2, 2, 3)
+iching.plotTransitionRemainder(1000, w = 50)
+plt.subplot(2, 2, 4)
+iching.plotTransitionRemainder(1000, w = 50)
+```
