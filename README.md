@@ -46,3 +46,20 @@ print sky, '\n', earth, '\n',secondChange, '\n', data
 sky, earth, thirdChange, data = iching.getChange(data)
 print sky, '\n', earth, '\n',thirdChange, '\n', data
 ```
+
+#####4. Plot transitions
+```python
+fig = plt.figure(figsize=(15, 10),facecolor='white')
+plt.subplot(2, 2, 1)
+iching.plotTransition(10)
+plt.subplot(2, 2, 2)
+iching.plotTransition(100)
+plt.subplot(2, 2, 3)
+iching.plotTransition(1000)
+plt.subplot(2, 2, 4)
+iching.plotTransition(10000)
+```
+
+
+![](https://github.com/chengjun/iching/blob/master/threechanges.png)
+```

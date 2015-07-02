@@ -6,6 +6,9 @@ Created on Sun Feb 22 14:19:41 2015
 """
 
 import random
+import matplotlib.cm as cm
+import matplotlib.pyplot as plt
+from collections import defaultdict
 
 def sepSkyEarth(data):
     sky =  random.randint(1, data-2)  
@@ -97,3 +100,37 @@ def interpretPredict(now, future):
     else:
         name = dt[now]
     print name
+
+
+
+def plotTransition(N):
+    import matplotlib.cm as cm
+    import matplotlib.pyplot as plt
+    from collections import defaultdict
+    
+    changes = {}
+    for i in range(N):
+        sky, earth, firstChange, data = getChange(data = 50 -1)
+        sky, earth, secondChange, data = getChange(data)
+        sky, earth, thirdChange, data = getChange(data)
+        changes[i]=[firstChange, secondChange, thirdChange]
+
+    ichanges = changes.values()
+
+    firstTransition = defaultdict(int)
+    for i in ichanges:
+        firstTransition[i[0], i[1]]+=1
+
+    secondTransition = defaultdict(int)
+    for i in ichanges:
+        secondTransition[i[1], i[2]]+=1
+
+    cmap = cm.get_cmap('Accent_r', len(ichanges))
+
+    for k, v in firstTransition.iteritems(): 
+        plt.plot([1, 2], k, linewidth = v*100/N)
+    for k, v in secondTransition.iteritems(): 
+        plt.plot([2, 3], k, linewidth = v*100/N)
+
+    plt.xlabel(u'Time')
+    plt.ylabel(u'Changes')
