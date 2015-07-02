@@ -21,7 +21,7 @@ pip install iching
 from iching import iching
 ```
 
-#####1. Predicting Six Yao
+#####1. Start to predict
 ```python
 iching.getPredict()
 ```
@@ -33,7 +33,7 @@ iching.interpretPredict(fixPred, changePred  )
 ```
 
 
-#####3. Three Changes in a Yao
+#####3. Understand Three Changes
 
 ```python
 data = 50 - 1
@@ -49,6 +49,7 @@ print sky, '\n', earth, '\n',thirdChange, '\n', data
 
 #####4. Plot transitions
 ```python
+import matplotlib.pyplot as plt
 fig = plt.figure(figsize=(15, 10),facecolor='white')
 plt.subplot(2, 2, 1)
 iching.plotTransition(10)
