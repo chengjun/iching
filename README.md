@@ -63,4 +63,3 @@ iching.plotTransition(10000)
 
 
 ![](https://github.com/chengjun/iching/blob/master/threechanges.png)
-```
