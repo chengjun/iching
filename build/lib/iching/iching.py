@@ -101,7 +101,12 @@ def interpretPredict(now, future):
         name = dt[now]
     print name
 
-
+def ichingText(k, iching):
+    path = iching.__file__
+    path = path.split('iching')[0]  
+    import json
+    dat = json.load(open(path + 'iching/package_data.dat'))
+    print dat[k]
 
 def plotTransition(N):
     import matplotlib.cm as cm
@@ -134,3 +139,10 @@ def plotTransition(N):
 
     plt.xlabel(u'Time')
     plt.ylabel(u'Changes')
+
+
+
+
+
+
+

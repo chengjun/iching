@@ -32,8 +32,22 @@ fixPred, changePred   = iching.getPredict()
 iching.interpretPredict(fixPred, changePred  )
 ```
 
+#####3. Geth the iching text
 
-#####3. Understand Three Changes
+```python
+iching.ichingText(fixPred, iching)
+```
+
+
+	坎卦原文坎。习坎，有孚，维心亨，行有尚。象曰：水洊至，习坎。君子以常德行，习教事。白话文解释习坎卦：抓获俘虏，劝慰安抚他们，通泰。途中将得到帮助。《象辞》说：坎为永，水长流不滞，是坎卦的卦象。君子观此卦象，从而尊尚德行，取法于细水长流之象，学习教化人民的方法。
+
+	《断易天机》解坎卦坎上坎下，为坎宫本位卦。坎为陷入、陷阱，为险难之境。此时应坚持信心，才能豁然贯通。
+
+	北宋易学家邵雍解艰难危险，重险重陷；事多困阻，谨慎行事。得此卦者，运气不佳，多难危险，事多困阻，宜谨言慎行，退守保安。
+
+
+
+#####4. Understand Three Changes
 
 ```python
 data = 50 - 1
@@ -67,4 +81,3 @@ iching.plotTransition(10000)
 ##To-do:
 
 - plotRemainder
-- add iching data
