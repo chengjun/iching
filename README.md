@@ -1,3 +1,5 @@
+<p><iframe height=2000 width=1000 src="http://nbviewer.ipython.org/github/chengjun/iching/blob/master/iching_intro.ipynb" frameborder=0 allowfullscreen></iframe></p>
+
 #I Ching Python project
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/I_Ching_Song_Dynasty_print.jpg/440px-I_Ching_Song_Dynasty_print.jpg)
