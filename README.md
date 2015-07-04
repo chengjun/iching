@@ -1,3 +1,5 @@
+<p><iframe height=2000 width=1000 src="http://nbviewer.ipython.org/github/chengjun/iching/blob/master/iching_intro.ipynb" frameborder=0 allowfullscreen></iframe></p>
+
 #I Ching Python project
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/I_Ching_Song_Dynasty_print.jpg/440px-I_Ching_Song_Dynasty_print.jpg)
@@ -46,6 +48,17 @@ iching.ichingName(fixPred, changePred  )
 iching.ichingText(fixPred, iching)
 ```
 
+For windows users:
+
+```python
+import sys
+
+reload(sys)
+sys.setdefaultencoding('gb18030')
+
+iching.ichingText(fixPred, iching)
+```
+
 
 	坎卦原文坎。习坎，有孚，维心亨，行有尚。象曰：水洊至，习坎。君子以常德行，习教事。白话文解释习坎卦：抓获俘虏，劝慰安抚他们，通泰。途中将得到帮助。《象辞》说：坎为永，水长流不滞，是坎卦的卦象。君子观此卦象，从而尊尚德行，取法于细水长流之象，学习教化人民的方法。
 
@@ -89,5 +102,8 @@ iching.plotTransitionRemainder(1000, w = 50)
 plt.subplot(2, 2, 4)
 iching.plotTransitionRemainder(1000, w = 50)
 ```
+<<<<<<< HEAD
 
 ![](http://7lrzgn.com1.z0.glb.clouddn.com/download.png)
+=======
+>>>>>>> origin/master
