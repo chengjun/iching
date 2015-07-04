@@ -10,6 +10,13 @@ import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
+def ichingDate(d):
+    random.seed(d)
+    try:
+        print 'Your birthday & your prediction time: ', str(d)
+    except:
+        print('Your birthday & your prediction time: ', str(d))
+
 def sepSkyEarth(data):
     sky =  random.randint(1, data-2)  
     earth = data - sky
@@ -49,7 +56,10 @@ def sixYao():
 
 def fixYao(num):
     if num == 6 or num == 9:
-        print "there is a changing predict! Also run changePredict()"
+        try:    # for python 2.x
+            print "there is a changing predict! Also run changePredict()"
+        except: # for python 3.x
+            print("there is a changing predict! Also run changePredict()")
     return num % 2
     
 
@@ -86,63 +96,31 @@ def getPredict():
         changePred = None
     return fixPred, changePred  
 
-def interpretPredict(now, future):
-    dt = {'111111':'乾','011111':'夬','000000':'坤','010001':'屯','100010':'蒙','010111':'需','111010':'讼','000010':'师',
-'010000':'比','110111':'小畜','111011':'履','000111':'泰','111000':'否','111101':'同人','101111':'大有','000100':'谦',
-'001000':'豫','011001':'随','100110':'蛊','000011':'临','110000':'观','101001':'噬嗑','100101':'贲','100000':'剥',
-'000001':'复','111001':'无妄','100111':'大畜','100001':'颐','011110':'大过','010010':'坎','101101':'离','011100':'咸',
-'001110':'恒','111100':'遁','001111':'大壮','101000':'晋','000101':'明夷','110101':'家人','101011':'睽','010100':'蹇',
-'001010':'解','100011':'损','110001':'益','111110':'姤','011000':'萃','000110':'升','011010':'困','010110':'井',
-'011101':'革','101110':'鼎','001001':'震','100100':'艮','110100':'渐','001011':'归妹','001101':'丰','101100':'旅',
-'110110':'巽','011011':'兑','110010':'涣','010011':'节','110011':'中孚','001100':'小过','010101':'既济','101010':'未济'}
+def ichingName(now, future):
+    dt = {'111111':u'乾','011111':u'夬','000000':u'坤','010001':u'屯','100010':u'蒙','010111':u'需','111010':u'讼','000010': u'师',
+'010000':u'比','110111':u'小畜','111011':u'履','000111':u'泰','111000':u'否','111101':u'同人','101111':u'大有','000100':u'谦',
+'001000':u'豫','011001':u'随','100110':u'蛊','000011':u'临','110000':u'观','101001':u'噬嗑','100101':u'贲','100000':u'剥',
+'000001':u'复','111001':u'无妄','100111':u'大畜','100001':u'颐','011110':u'大过','010010':u'坎','101101':u'离','011100':u'咸',
+'001110':u'恒','111100':u'遁','001111':u'大壮','101000':u'晋','000101':u'明夷','110101':u'家人','101011':u'睽','010100':u'蹇',
+'001010':u'解','100011':u'损','110001':u'益','111110':u'姤','011000':u'萃','000110':u'升','011010':u'困','010110':u'井',
+'011101':u'革','101110':u'鼎','001001':u'震','100100':u'艮','110100':u'渐','001011':u'归妹','001101':u'丰','101100':u'旅',
+'110110':u'巽','011011':u'兑','110010':u'涣','010011':u'节','110011':u'中孚','001100':u'小过','010101':u'既济','101010':u'未济'}
     if future:
         name = dt[now] + ' & ' + dt[future]
     else:
         name = dt[now]
-    print name
+    return name
 
 def ichingText(k, iching):
     path = iching.__file__
     path = path.split('iching')[0]  
     import json
-    dat = json.load(open(path + 'iching/package_data.dat'))
-    print dat[k]
-
-def plotTransition(N):
-    import matplotlib.cm as cm
-    import matplotlib.pyplot as plt
-    from collections import defaultdict
-    
-    changes = {}
-    for i in range(N):
-        sky, earth, firstChange, data = getChange(data = 50 -1)
-        sky, earth, secondChange, data = getChange(data)
-        sky, earth, thirdChange, data = getChange(data)
-        changes[i]=[firstChange, secondChange, thirdChange]
-
-    ichanges = changes.values()
-
-    firstTransition = defaultdict(int)
-    for i in ichanges:
-        firstTransition[i[0], i[1]]+=1
-
-    secondTransition = defaultdict(int)
-    for i in ichanges:
-        secondTransition[i[1], i[2]]+=1
-
-    cmap = cm.get_cmap('Accent_r', len(ichanges))
-
-    for k, v in firstTransition.iteritems(): 
-        plt.plot([1, 2], k, linewidth = v*100/N)
-    for k, v in secondTransition.iteritems(): 
-        plt.plot([2, 3], k, linewidth = v*100/N)
-
-    plt.xlabel(u'Time')
-    plt.ylabel(u'Changes')
+    dat = json.load(open(path + 'iching/package_data.dat'), encoding = 'utf-8')
+    return dat[k]
 
 
 
-def plotTransitionRemainder(N, w):
+def plotTransition(N, w):
     import matplotlib.cm as cm
     import matplotlib.pyplot as plt
     from collections import defaultdict

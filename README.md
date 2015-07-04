@@ -21,6 +21,14 @@ pip install iching
 from iching import iching
 ```
 
+#####0. Set iching time
+
+```python
+iching.ichingDate(1985052620150704) 
+# e.g., 19850526 is your birthday and 20150704 is the prediction time.
+# of course, your can also input more precise time.
+```
+
 #####1. Start to predict
 ```python
 iching.getPredict()
@@ -29,7 +37,7 @@ iching.getPredict()
 #####2. Get the iching name
 ```python
 fixPred, changePred   = iching.getPredict()
-iching.interpretPredict(fixPred, changePred  )
+iching.ichingName(fixPred, changePred  )
 ```
 
 #####3. Geth the iching text
@@ -61,22 +69,9 @@ sky, earth, thirdChange, data = iching.getChange(data)
 print sky, '\n', earth, '\n',thirdChange, '\n', data
 ```
 
-#####4. Plot transitions
-```python
-import matplotlib.pyplot as plt
-fig = plt.figure(figsize=(15, 10),facecolor='white')
-plt.subplot(2, 2, 1)
-iching.plotTransition(10)
-plt.subplot(2, 2, 2)
-iching.plotTransition(100)
-plt.subplot(2, 2, 3)
-iching.plotTransition(1000)
-plt.subplot(2, 2, 4)
-iching.plotTransition(10000)
-```
+#####5. Plot transitions
 
 
-![](https://github.com/chengjun/iching/blob/master/threechanges.png)
 
 
 
@@ -94,3 +89,5 @@ iching.plotTransitionRemainder(1000, w = 50)
 plt.subplot(2, 2, 4)
 iching.plotTransitionRemainder(1000, w = 50)
 ```
+
+![](http://7lrzgn.com1.z0.glb.clouddn.com/download.png)
