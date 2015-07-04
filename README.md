@@ -40,6 +40,17 @@ iching.interpretPredict(fixPred, changePred  )
 iching.ichingText(fixPred, iching)
 ```
 
+For windows users:
+
+```python
+import sys
+
+reload(sys)
+sys.setdefaultencoding('gb18030')
+
+iching.ichingText(fixPred, iching)
+```
+
 
 	坎卦原文坎。习坎，有孚，维心亨，行有尚。象曰：水洊至，习坎。君子以常德行，习教事。白话文解释习坎卦：抓获俘虏，劝慰安抚他们，通泰。途中将得到帮助。《象辞》说：坎为永，水长流不滞，是坎卦的卦象。君子观此卦象，从而尊尚德行，取法于细水长流之象，学习教化人民的方法。
 
