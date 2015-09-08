@@ -42,7 +42,7 @@ fixPred, changePred   = iching.getPredict()
 iching.ichingName(fixPred, changePred  )
 ```
 
-#####3. Geth the iching text
+#####3. Get the iching text
 
 ```python
 iching.ichingText(fixPred, iching)
