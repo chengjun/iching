@@ -17,15 +17,11 @@ The Zhou yi provided a guide to cleromancy that used the stalks of the yarrow pl
 pip install iching
 ```
 
-# Use
-
-```python
-from iching import iching
-```
-
 # A Quick Tutorial
 
 ```python
+from iching import iching
+
 def ichingbook(birthday):
     iching.ichingDate(birthday)
     fixPred, changePred   = iching.getPredict()
@@ -42,9 +38,15 @@ def ichingbook(birthday):
     sepline4 = '\n                 |-||||||||-|      '
     sepline5 = '\n  _/\___/\___/\__|-|/\/\/\|-|__/\___/\___/\_'
     sepline6 = '\n   ||___||___||__|-||||||||-|__||___||___|| '
-    print(guaNames, '\n', u'本卦: ', fixText, sepline1,sepline2,sepline3,sepline4,sepline5, sepline6,'\n\n\n', u'变卦: ', changeText)
+    print(guaNames+'\n'+u'本卦: '+fixText+sepline1+sepline2+sepline3+sepline4+sepline5+sepline6+'\n\n\n'+u'变卦: '+changeText)
 
 ichingbook(1985092720180119)
+```
+
+# Use
+
+```python
+from iching import iching
 ```
 
 ##### 0. Set iching time
