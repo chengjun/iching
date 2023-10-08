@@ -12,13 +12,10 @@ from collections import defaultdict
 
 def ichingDate(d):
     random.seed(d)
-    try:
-        print 'Your birthday & your prediction time: ', str(d)
-    except:
-        print('Your birthday & your prediction time: ', str(d))
+    print('Your birthday & your prediction time: ', str(d))
 
 def sepSkyEarth(data):
-    sky =  random.randint(1, data-2)  
+    sky =  random.randint(1, data-2)
     earth = data - sky
     earth -= 1
     return sky , earth
@@ -42,7 +39,7 @@ def getYao(data):
     sky, earth, firstChange, data = getChange(data)
     sky, earth, secondChange, data = getChange(data)
     sky, earth, thirdChange, data = getChange(data)
-    yao  = data/4
+    yao  = int(data/4)
     return yao, firstChange, secondChange, thirdChange
 
 def sixYao():
@@ -56,12 +53,9 @@ def sixYao():
 
 def fixYao(num):
     if num == 6 or num == 9:
-        try:    # for python 2.x
-            print "there is a changing predict! Also run changePredict()"
-        except: # for python 3.x
-            print("there is a changing predict! Also run changePredict()")
+        print("there is a changing predict! Also run changePredict()")
     return num % 2
-    
+
 
 def changeYao(num):
     if num == 6:
@@ -94,7 +88,7 @@ def getPredict():
         changePred = changePredict(pred)
     else:
         changePred = None
-    return fixPred, changePred  
+    return fixPred, changePred
 
 def ichingName(now, future):
     dt = {'111111':u'乾','011111':u'夬','000000':u'坤','010001':u'屯','100010':u'蒙','010111':u'需','111010':u'讼','000010': u'师',
@@ -113,9 +107,9 @@ def ichingName(now, future):
 
 def ichingText(k, iching):
     path = iching.__file__
-    path = path.split('iching')[0]  
+    path = path.split('iching')[0]
     import json
-    dat = json.load(open(path + 'iching/package_data.dat'), encoding = 'utf-8')
+    dat = json.load(open(path + 'iching/package_data.dat', encoding = 'utf-8'))
     return dat[k]
 
 
@@ -124,7 +118,7 @@ def plotTransition(N, w):
     import matplotlib.cm as cm
     import matplotlib.pyplot as plt
     from collections import defaultdict
-    
+
     changes = {}
     for i in range(N):
         sky, earth, firstChange, data = getChange(data = 50 -1)
@@ -144,20 +138,15 @@ def plotTransition(N, w):
 
     thirdTransition = defaultdict(int)
     for i in ichanges:
-        thirdTransition[i[2], i[3]]+=1    
-        
+        thirdTransition[i[2], i[3]]+=1
+
     cmap = cm.get_cmap('Accent_r', len(ichanges))
 
-    for k, v in firstTransition.iteritems(): 
+    for k, v in firstTransition.items():
         plt.plot([1, 2], k, linewidth = v*w/N)
-    for k, v in secondTransition.iteritems(): 
+    for k, v in secondTransition.items():
         plt.plot([2, 3], k, linewidth = v*w/N)
-    for k, v in thirdTransition.iteritems(): 
+    for k, v in thirdTransition.items():
         plt.plot([3, 4], k, linewidth = v*w/N)
     plt.xlabel(u'Time')
     plt.ylabel(u'Changes')
-
-    
-
-
-

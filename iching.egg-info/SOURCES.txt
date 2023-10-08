@@ -1,4 +1,5 @@
 DESCRIPTION.rst
+LICENSE
 MANIFEST.in
 README.rst
 setup.cfg
