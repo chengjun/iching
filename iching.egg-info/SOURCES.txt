@@ -2,6 +2,7 @@ DESCRIPTION.rst
 LICENSE
 MANIFEST.in
 README.rst
+pyproject.toml
 setup.cfg
 setup.py
 iching/__init__.py

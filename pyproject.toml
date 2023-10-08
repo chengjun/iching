@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iching"
+version = "3.5.0"
+authors = [
+  { name="Cheng-Jun Wang", email="wangchj04@gmail.com" },
+]
+description = "Book of Changes"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/chengjun/iching"
+"Bug Tracker" = "https://github.com/chengjun/iching/issues"
