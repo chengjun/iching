@@ -8,7 +8,11 @@ Created on Sun Feb 22 14:19:41 2015
 import random
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
+import json
+import pkg_resources
 from collections import defaultdict
+from datetime import date
+from datetime import timedelta
 
 def ichingDate(d):
     random.seed(d)
@@ -105,20 +109,14 @@ def ichingName(now, future):
         name = dt[now]
     return name
 
-def ichingText(k, iching):
-    path = iching.__file__
-    path = path.split('iching')[0]
-    import json
-    dat = json.load(open(path + 'iching/package_data.dat', encoding = 'utf-8'))
+def ichingText(k):
+    path = pkg_resources.resource_filename('iching', 'package_data.dat')
+    dat = json.load(open(path, encoding = 'utf-8'))
     return dat[k]
 
 
 
 def plotTransition(N, w):
-    import matplotlib.cm as cm
-    import matplotlib.pyplot as plt
-    from collections import defaultdict
-
     changes = {}
     for i in range(N):
         sky, earth, firstChange, data = getChange(data = 50 -1)
@@ -150,3 +148,24 @@ def plotTransition(N, w):
         plt.plot([3, 4], k, linewidth = v*w/N)
     plt.xlabel(u'Time')
     plt.ylabel(u'Changes')
+    
+
+def predict(birthday, today):
+    # birthday and today could be 19990526 and 20201023
+    day = str(birthday)+str(today)
+    dayStr = day.replace('-', '').replace('/', '')
+    dayInt = int(dayStr) 
+    ichingDate(dayInt)
+    fixPred, changePred   = getPredict()
+    plotTransition(6, w = 15)
+    guaNames = ichingName(fixPred, changePred) 
+    fixText = ichingText(fixPred) # 
+    if changePred:
+        changeText = ichingText(changePred) # 
+    else:
+        changeText = None
+    sepline1 = '\n                (O--__/\__--O)'
+    sepline2 = '\n(-------------(O---- |__|----O)----------------)'
+    sepline4 = '\n         (-------(O-/_--_\-O)-------)'
+    sepline3 = '\n(-----------(O-----/-|__|-\------O)------------)'
+    print(guaNames, '\n', u'本卦: ', fixText, sepline1,sepline2,sepline3,sepline4,'\n\n\n', u'变卦: ', changeText)

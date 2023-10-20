@@ -1,0 +1,17 @@
+DESCRIPTION.rst
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+iching/__init__.py
+iching/iching.py
+iching/package_data.dat
+iching.egg-info/PKG-INFO
+iching.egg-info/SOURCES.txt
+iching.egg-info/dependency_links.txt
+iching.egg-info/entry_points.txt
+iching.egg-info/requires.txt
+iching.egg-info/top_level.txt
+sample/__init__.py
