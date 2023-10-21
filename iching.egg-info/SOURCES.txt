@@ -8,6 +8,7 @@ setup.py
 iching/__init__.py
 iching/iching.py
 iching/package_data.dat
+iching/plot.py
 iching.egg-info/PKG-INFO
 iching.egg-info/SOURCES.txt
 iching.egg-info/dependency_links.txt

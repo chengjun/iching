@@ -6,8 +6,6 @@ Created on Sun Feb 22 14:19:41 2015
 """
 
 import random
-import matplotlib.cm as cm
-import matplotlib.pyplot as plt
 import json
 import pkg_resources
 from collections import defaultdict
@@ -114,42 +112,6 @@ def ichingText(k):
     dat = json.load(open(path, encoding = 'utf-8'))
     return dat[k]
 
-
-
-def plotTransition(N, w):
-    changes = {}
-    for i in range(N):
-        sky, earth, firstChange, data = getChange(data = 50 -1)
-        sky, earth, secondChange, data = getChange(data)
-        sky, earth, thirdChange, data = getChange(data)
-        changes[i]=[firstChange, secondChange, thirdChange, data/4]
-
-    ichanges = changes.values()
-
-    firstTransition = defaultdict(int)
-    for i in ichanges:
-        firstTransition[i[0], i[1]]+=1
-
-    secondTransition = defaultdict(int)
-    for i in ichanges:
-        secondTransition[i[1], i[2]]+=1
-
-    thirdTransition = defaultdict(int)
-    for i in ichanges:
-        thirdTransition[i[2], i[3]]+=1
-
-    cmap = cm.get_cmap('Accent_r', len(ichanges))
-
-    for k, v in firstTransition.items():
-        plt.plot([1, 2], k, linewidth = v*w/N)
-    for k, v in secondTransition.items():
-        plt.plot([2, 3], k, linewidth = v*w/N)
-    for k, v in thirdTransition.items():
-        plt.plot([3, 4], k, linewidth = v*w/N)
-    plt.xlabel(u'Time')
-    plt.ylabel(u'Changes')
-    
-
 def predict(birthday, today):
     # birthday and today could be 19990526 and 20201023
     day = str(birthday)+str(today)
@@ -157,7 +119,7 @@ def predict(birthday, today):
     dayInt = int(dayStr) 
     ichingDate(dayInt)
     fixPred, changePred   = getPredict()
-    plotTransition(6, w = 15)
+    # plotTransition(6, w = 15)
     guaNames = ichingName(fixPred, changePred) 
     fixText = ichingText(fixPred) # 
     if changePred:
