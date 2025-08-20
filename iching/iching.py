@@ -51,7 +51,7 @@ def sixYao():
     yao4 = getYao(data = 50 - 1)[0]
     yao5 = getYao(data = 50 - 1)[0]
     yao6 = getYao(data = 50 - 1)[0]
-    return[yao1, yao2, yao3, yao4, yao5, yao6]
+    return[yao6, yao5, yao4, yao3, yao2, yao1]
 
 def fixYao(num):
     if num == 6 or num == 9:
